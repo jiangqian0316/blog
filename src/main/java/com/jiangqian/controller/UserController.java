@@ -1,6 +1,8 @@
 package com.jiangqian.controller;
 
 
+import com.jiangqian.common.lang.Result;
+import com.jiangqian.entity.User;
 import com.jiangqian.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +25,11 @@ public class UserController {
 
         @Autowired
         UserService userService;
+
         @GetMapping("/{id}")
-        public Object test(@PathVariable("id") Long id) {
-            return userService.getById(id);
+        public Result test(@PathVariable("id") Long id) {
+            User byId = userService.getById(id);
+            return Result.succ(200,"操作成功",byId);
 
     }
 }
