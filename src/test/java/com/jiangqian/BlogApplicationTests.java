@@ -1,4 +1,4 @@
-package com.jiangqian.blog;
+package com.jiangqian;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

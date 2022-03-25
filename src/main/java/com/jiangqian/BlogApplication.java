@@ -1,4 +1,4 @@
-package com.jiangqian.blog;
+package com.jiangqian;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
