@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://124.223.155.157:3306/blog?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: blog
-    password: blog
+    password: jiangqian
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 server:
