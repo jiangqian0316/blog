@@ -42,7 +42,7 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
         securityManager.setSessionManager(sessionManager);
         securityManager.setCacheManager(redisCacheManager);
-        /*
+        /**
          * 关闭shiro自带的session，详情见文档
          */
         DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
@@ -59,10 +59,16 @@ public class ShiroConfig {
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         Map<String, String> filterMap = new LinkedHashMap<>();
+        System.out.println("///////////////////////////");
+//        filterMap.put("/**", "authc"); // 没有权限跳转http://localhost:8081/login.jsp;JSESSIONID=a99b92d8-4ff2-4d73-a4b7-6128b9c60352
         filterMap.put("/**", "jwt"); // 主要通过注解方式校验权限
         chainDefinition.addPathDefinitions(filterMap);
         return chainDefinition;
     }
+
+    /**
+     * shiroFilterFactoryBean--shiro过滤工厂
+     * */
     @Bean("shiroFilterFactoryBean")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
                                                          ShiroFilterChainDefinition shiroFilterChainDefinition) {
@@ -74,6 +80,7 @@ public class ShiroConfig {
         Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
         shiroFilter.setFilterChainDefinitionMap(filterMap);
         return shiroFilter;
+
     }
 
 

@@ -8,17 +8,17 @@ public class JwtToken implements AuthenticationToken {
 
     private String token;
 
-    private JwtToken(String jwt ){
+    JwtToken(String jwt){
         this.token = jwt;
     }
 
     @Override
     public Object getPrincipal() {
-        return null;
+        return token;
     }
 
     @Override
     public Object getCredentials() {
-        return null;
+        return token;
     }
 }
